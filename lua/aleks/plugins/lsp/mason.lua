@@ -45,7 +45,7 @@ return {
         "black", -- python formatter
         "pylint", -- python linter
         "eslint_d",
-	"checkstyle",-- js linter
+        "checkstyle",-- js linter
       },
     })
   end,
