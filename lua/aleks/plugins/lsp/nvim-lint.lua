@@ -2,8 +2,6 @@ return {
 	'mfussenegger/nvim-lint',
 	config = function ()
 		local lint = require("lint")
-		local checkstyle = lint.linters.checkstyle
-		checkstyle.config_file = '/home/lexu/Downloads/Powerize/checkstyle-powerize.xml'
 		lint.linters_by_ft = {
   			java = {'checkstyle'},
 		    python = {'pylint'},
