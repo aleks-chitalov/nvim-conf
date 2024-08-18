@@ -96,17 +96,23 @@ return {
       on_attach = on_attach,
     })
 
-    lspconfig.rust_analyzer.setup {
-  -- Server-specific settings. See `:help lspconfig-setup`
-  settings = {
-    ['rust-analyzer'] = {},
-  },
-}
-
     lspconfig["pyright"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
+
+    lspconfig.rust_analyzer.setup({
+  settings = {
+    ["rust-analyzer"] = {
+      check = {
+       command = "clippy",
+      },
+      },
+    },
+    on_attach = on_attach,
+    capabilities = capabilities;
+
+})
 
     -- configure lua server (with special settings)
     -- configure lua server (with special settings)
