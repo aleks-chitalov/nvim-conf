@@ -91,10 +91,21 @@ return {
       on_attach = on_attach,
     })
 
+   lspconfig.glsl_analyzer.setup{}
+
     lspconfig["jdtls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
+
+    lspconfig.eslint.setup({
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+})
 
     lspconfig["pyright"].setup({
       capabilities = capabilities,
@@ -114,7 +125,6 @@ return {
 
 })
 
-    -- configure lua server (with special settings)
     -- configure lua server (with special settings)
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
